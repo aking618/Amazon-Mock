@@ -1,3 +1,4 @@
+import 'package:amazon_mock/pages/home/tab_indicator.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -108,6 +109,20 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
+          Expanded(
+            child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return Container(
+                  height: MediaQuery.of(context).size.height / 4,
+                  decoration: BoxDecoration(
+                    color: index % 2 == 0 ? Colors.red : Colors.blue,
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: SafeArea(
@@ -124,9 +139,9 @@ class _HomeState extends State<Home> {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // TabIndicator(
-                  //   isActive: tabIndex == 0,
-                  // ),
+                  TabIndicator(
+                    isActive: tabIndex == 0,
+                  ),
                   IconButton(
                     icon: const Icon(
                       Icons.home_outlined,
@@ -136,26 +151,50 @@ class _HomeState extends State<Home> {
                   ),
                 ],
               ),
-              IconButton(
-                icon: const Icon(
-                  Icons.person_outlined,
-                  color: Colors.black,
-                ),
-                onPressed: () => setState(() => tabIndex = 1),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TabIndicator(
+                    isActive: tabIndex == 1,
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.person_outlined,
+                      color: Colors.black,
+                    ),
+                    onPressed: () => setState(() => tabIndex = 1),
+                  ),
+                ],
               ),
-              IconButton(
-                icon: const Icon(
-                  Icons.shopping_cart_checkout_outlined,
-                  color: Colors.black,
-                ),
-                onPressed: () => setState(() => tabIndex = 2),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TabIndicator(
+                    isActive: tabIndex == 2,
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.shopping_cart_outlined,
+                      color: Colors.black,
+                    ),
+                    onPressed: () => setState(() => tabIndex = 2),
+                  ),
+                ],
               ),
-              IconButton(
-                icon: const Icon(
-                  Icons.menu,
-                  color: Colors.black,
-                ),
-                onPressed: () => setState(() => tabIndex = 3),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TabIndicator(
+                    isActive: tabIndex == 3,
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.menu,
+                      color: Colors.black,
+                    ),
+                    onPressed: () => setState(() => tabIndex = 3),
+                  ),
+                ],
               ),
             ],
           ),
