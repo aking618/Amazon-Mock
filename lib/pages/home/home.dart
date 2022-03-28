@@ -10,6 +10,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final _searchTextController = TextEditingController();
 
+  int tabIndex = 0;
+
   @override
   void dispose() {
     _searchTextController.dispose();
@@ -107,6 +109,57 @@ class _HomeState extends State<Home> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.grey,
+              width: 1.0,
+            ),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // TabIndicator(
+                  //   isActive: tabIndex == 0,
+                  // ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.home_outlined,
+                      color: Colors.black,
+                    ),
+                    onPressed: () => setState(() => tabIndex = 0),
+                  ),
+                ],
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.person_outlined,
+                  color: Colors.black,
+                ),
+                onPressed: () => setState(() => tabIndex = 1),
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.shopping_cart_checkout_outlined,
+                  color: Colors.black,
+                ),
+                onPressed: () => setState(() => tabIndex = 2),
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.menu,
+                  color: Colors.black,
+                ),
+                onPressed: () => setState(() => tabIndex = 3),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
