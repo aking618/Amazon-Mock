@@ -25,6 +25,11 @@ class ProductDisplay extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.grey[350],
+                image: DecorationImage(
+                  image: AssetImage(
+                    product.imageUrl,
+                  ),
+                ),
               ),
             ),
           ),
@@ -36,7 +41,7 @@ class ProductDisplay extends StatelessWidget {
                 color: Colors.white,
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
@@ -86,23 +91,26 @@ class ProductDisplay extends StatelessWidget {
                                   Image.asset('assets/images/amazon-prime.png'),
                             )
                           : Container(),
-                      RichText(
-                        text: TextSpan(
-                          text: product.deliveryType,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                            color: Colors.grey,
-                          ),
-                          children: <TextSpan>[
-                            const TextSpan(text: " "),
-                            TextSpan(
-                              text: product.deliveryDate,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.grey[700],
-                              ),
+                      Expanded(
+                        flex: 3,
+                        child: RichText(
+                          text: TextSpan(
+                            text: product.deliveryType,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w400,
+                              color: Colors.grey,
                             ),
-                          ],
+                            children: <TextSpan>[
+                              const TextSpan(text: " "),
+                              TextSpan(
+                                text: product.deliveryDate,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey[700],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],

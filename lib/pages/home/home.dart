@@ -1,6 +1,6 @@
-import 'package:amazon_mock/models/product_model.dart';
 import 'package:amazon_mock/pages/home/product_display.dart';
 import 'package:amazon_mock/pages/home/tab_indicator.dart';
+import 'package:amazon_mock/services/mock_data.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -114,19 +114,10 @@ class _HomeState extends State<Home> {
           Expanded(
             child: ListView.builder(
               scrollDirection: Axis.vertical,
-              itemCount: 5,
+              itemCount: MockData().products.length,
               itemBuilder: (context, index) {
                 return ProductDisplay(
-                  product: Product(
-                    "Harry's Shave Gel - Shaving Gel with an Aloe Enriched Formula - 3 pack (6.7oz)",
-                    "6.7 Ounce (Pack of 3)",
-                    3,
-                    5405,
-                    17,
-                    true,
-                    "FREE Delivery",
-                    "Thu, Mar 31",
-                  ),
+                  product: MockData().products[index],
                 );
               },
             ),
