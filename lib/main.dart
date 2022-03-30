@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Amazon Mock',
       theme: ThemeData(
-          // primarySwatch: Colors.blue,
-          ),
+        fontFamily: 'AmazonEmber',
+      ),
       home: const Home(),
     );
   }

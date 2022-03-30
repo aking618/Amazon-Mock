@@ -1,3 +1,5 @@
+import 'package:amazon_mock/models/product_model.dart';
+import 'package:amazon_mock/pages/home/product_display.dart';
 import 'package:amazon_mock/pages/home/tab_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -114,10 +116,16 @@ class _HomeState extends State<Home> {
               scrollDirection: Axis.vertical,
               itemCount: 5,
               itemBuilder: (context, index) {
-                return Container(
-                  height: MediaQuery.of(context).size.height / 4,
-                  decoration: BoxDecoration(
-                    color: index % 2 == 0 ? Colors.red : Colors.blue,
+                return ProductDisplay(
+                  product: Product(
+                    "Harry's Shave Gel - Shaving Gel with an Aloe Enriched Formula - 3 pack (6.7oz)",
+                    "6.7 Ounce (Pack of 3)",
+                    3,
+                    5405,
+                    17,
+                    true,
+                    "FREE Delivery",
+                    "Thu, Mar 31",
                   ),
                 );
               },
